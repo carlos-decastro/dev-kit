@@ -181,14 +181,14 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## Index
 
-- [Documentação do Ambiente de Desenvolvimento](#documentação-do-ambiente-de-desenvolvimento)
-  - [Índice](#índice)
-  - [Introdução](#introdução)
-  - [Objetivo do Projeto](#objetivo-do-projeto)
-  - [Estrutura do Projeto](#estrutura-do-projeto)
-  - [Execução](#execução)
-    - [Observação](#observação)
-  - [Conexões](#conexões)
+- [Development Environment Documentation](#development-environment-documentation)
+  - [Index](#index)
+  - [Introduction](#introduction)
+  - [Project Objective](#project-objective)
+  - [Project Structure](#project-structure)
+  - [Execution](#execution)
+    - [Note](#note)
+  - [Connections](#connections)
     - [PostgreSQL](#postgresql)
     - [Oracle XE](#oracle-xe)
     - [Redis](#redis)
@@ -202,32 +202,6 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
     - [MongoExpress](#mongoexpress)
     - [RabbitMQ Management](#rabbitmq-management)
     - [RabbitMQ Management](#rabbitmq-management-1)
-  - [Configurações Adicionais](#configurações-adicionais)
-    - [Limitar Uso de Memória no Docker Desktop WSL2](#limitar-uso-de-memória-no-docker-desktop-wsl2)
-    - [Configuração de Conexão do Redis pelo RedisInsight](#configuração-de-conexão-do-redis-pelo-redisinsight)
-  - [Contribuição](#contribuição)
-  - [Licença](#licença)
-- [Development Environment Documentation](#development-environment-documentation)
-  - [Index](#index)
-  - [Introduction](#introduction)
-  - [Project Objective](#project-objective)
-  - [Project Structure](#project-structure)
-  - [Execution](#execution)
-    - [Note](#note)
-  - [Connections](#connections)
-    - [PostgreSQL](#postgresql-1)
-    - [Oracle XE](#oracle-xe-1)
-    - [Redis](#redis-1)
-    - [Kafka](#kafka-1)
-    - [MongoDB](#mongodb-1)
-    - [RabbitMQ](#rabbitmq-1)
-    - [Elasticsearch](#elasticsearch-1)
-  - [Interfaces](#interfaces-1)
-    - [KafkaUI](#kafkaui-1)
-    - [RedisInsight](#redisinsight-1)
-    - [MongoExpress](#mongoexpress-1)
-    - [RabbitMQ Management](#rabbitmq-management-2)
-    - [RabbitMQ Management](#rabbitmq-management-3)
   - [Additional Configurations](#additional-configurations)
     - [Limit Memory Usage on Docker Desktop WSL2](#limit-memory-usage-on-docker-desktop-wsl2)
     - [RedisInsight Connection Configuration](#redisinsight-connection-configuration)
@@ -286,46 +260,46 @@ You can comment out the services you do not want to run in the `docker-compose.y
 
 ### PostgreSQL
 
-- **HOST:** localhost  
-- **PORT:** 5432  
-- **USER:** postgres  
-- **PASSWORD:** admin  
+- **HOST:** localhost
+- **PORT:** 5432
+- **USER:** postgres
+- **PASSWORD:** admin
 
 ### Oracle XE
 
-- **HOST:** localhost  
-- **PORT:** 1521  
-- **SID:** XE  
-- **USER:** SYSTEM  
-- **PASSWORD:** 123456  
+- **HOST:** localhost
+- **PORT:** 1521
+- **SID:** XE
+- **USER:** SYSTEM
+- **PASSWORD:** 123456
 
 ### Redis
 
-- **HOST:** localhost  
-- **PORT:** 6379  
+- **HOST:** localhost
+- **PORT:** 6379
 
 ### Kafka
 
-- **HOST:** localhost  
-- **PORT:** 9091  
+- **HOST:** localhost
+- **PORT:** 9091
 
 ### MongoDB
 
-- **HOST:** localhost  
-- **PORT:** 27017  
-- **USER:** root  
-- **PASSWORD:** 123456  
+- **HOST:** localhost
+- **PORT:** 27017
+- **USER:** root
+- **PASSWORD:** 123456
 
 ### RabbitMQ
 
-- **HOST:** localhost  
-- **PORT:** 5672  
-- **USER:** guest  
+- **HOST:** localhost
+- **PORT:** 5672
+- **USER:** guest
 - **PASSWORD:** guest
 
 ### Elasticsearch
 
-- **HOST:** localhost  
+- **HOST:** localhost
 - **PORT:** 9200
 
 ---
@@ -376,3 +350,4 @@ Contributions are welcome! Feel free to open issues or pull requests for improve
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
