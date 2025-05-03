@@ -25,7 +25,7 @@
     - [RedisInsight](#redisinsight)
     - [MongoExpress](#mongoexpress)
     - [RabbitMQ Management](#rabbitmq-management)
-    - [RabbitMQ Management](#rabbitmq-management-1)
+    - [Kibana](#kibana)
   - [Configurações Adicionais](#configurações-adicionais)
     - [Limitar Uso de Memória no Docker Desktop WSL2](#limitar-uso-de-memória-no-docker-desktop-wsl2)
     - [Configuração de Conexão do Redis pelo RedisInsight](#configuração-de-conexão-do-redis-pelo-redisinsight)
@@ -146,7 +146,7 @@ Você pode comentar os serviços que não deseja executar no arquivo `docker-com
 
 - URL: [http://localhost:8081/](http://localhost:15672/)
 
-### RabbitMQ Management
+### Kibana
 
 - URL: [http://localhost:8081/](http://localhost:5601/)
 
@@ -201,7 +201,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
     - [RedisInsight](#redisinsight)
     - [MongoExpress](#mongoexpress)
     - [RabbitMQ Management](#rabbitmq-management)
-    - [RabbitMQ Management](#rabbitmq-management-1)
+    - [Kibana](#kibana)
   - [Additional Configurations](#additional-configurations)
     - [Limit Memory Usage on Docker Desktop WSL2](#limit-memory-usage-on-docker-desktop-wsl2)
     - [RedisInsight Connection Configuration](#redisinsight-connection-configuration)
@@ -322,7 +322,7 @@ You can comment out the services you do not want to run in the `docker-compose.y
 
 - URL: [http://localhost:8081/](http://localhost:15672/)
 
-### RabbitMQ Management
+### Kibana
 
 - URL: [http://localhost:8081/](http://localhost:5601/)
 
