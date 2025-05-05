@@ -1,2 +1,3 @@
+.idea
 kafka_stack/data/*
 kafka_stack/connectors/*
