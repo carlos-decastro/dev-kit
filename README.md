@@ -140,15 +140,15 @@ Você pode comentar os serviços que não deseja executar no arquivo `docker-com
 
 ### MongoExpress
 
-- URL: [http://localhost:8081/](http://localhost:8081/)
+- URL: [http://localhost:8089/](http://localhost:8089/)
 
 ### RabbitMQ Management
 
-- URL: [http://localhost:8081/](http://localhost:15672/)
+- URL: [http://localhost:15672/](http://localhost:15672/)
 
 ### Kibana
 
-- URL: [http://localhost:8081/](http://localhost:5601/)
+- URL: [http://localhost:5601/](http://localhost:5601/)
 
 ---
 
@@ -316,15 +316,15 @@ You can comment out the services you do not want to run in the `docker-compose.y
 
 ### MongoExpress
 
-- URL: [http://localhost:8081/](http://localhost:8081/)
+- URL: [http://localhost:8089/](http://localhost:8089/)
 
 ### RabbitMQ Management
 
-- URL: [http://localhost:8081/](http://localhost:15672/)
+- URL: [http://localhost:15672/](http://localhost:15672/)
 
 ### Kibana
 
-- URL: [http://localhost:8081/](http://localhost:5601/)
+- URL: [http://localhost:5601/](http://localhost:5601/)
 
 ---
 

@@ -35,96 +35,96 @@ services:
     depends_on:
       - zookeeper
 
-  kafka-schema-registry:
-    image: confluentinc/cp-schema-registry:7.3.2
-    restart: always
-    hostname: kafka-schema-registry
-    container_name: kafka-schema-registry
-    ports:
-      - "8081:8081"
-    environment:
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
-      SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-    depends_on:
-      - zookeeper
-      - kafka1
+#  kafka-schema-registry:
+#    image: confluentinc/cp-schema-registry:7.3.2
+#    restart: always
+#    hostname: kafka-schema-registry
+#    container_name: kafka-schema-registry
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
+#      SCHEMA_REGISTRY_HOST_NAME: kafka-schema-registry
+#      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+#    depends_on:
+#      - zookeeper
+#      - kafka1
 
-  kafka-rest-proxy:
-    image: confluentinc/cp-kafka-rest:7.3.2
-    restart: always
-    hostname: kafka-rest-proxy
-    container_name: kafka-rest-proxy
-    ports:
-      - "8082:8082"
-    environment:
-      KAFKA_REST_LISTENERS: http://0.0.0.0:8082/
-      KAFKA_REST_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
-      KAFKA_REST_HOST_NAME: kafka-rest-proxy
-      KAFKA_REST_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
-    depends_on:
-      - zookeeper
-      - kafka1
-      - kafka-schema-registry
+#  kafka-rest-proxy:
+#    image: confluentinc/cp-kafka-rest:7.3.2
+#    restart: always
+#    hostname: kafka-rest-proxy
+#    container_name: kafka-rest-proxy
+#    ports:
+#      - "8082:8082"
+#    environment:
+#      KAFKA_REST_LISTENERS: http://0.0.0.0:8082/
+#      KAFKA_REST_SCHEMA_REGISTRY_URL: http://kafka-schema-registry:8081/
+#      KAFKA_REST_HOST_NAME: kafka-rest-proxy
+#      KAFKA_REST_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
+#    depends_on:
+#      - zookeeper
+#      - kafka1
+#      - kafka-schema-registry
 
-  kafka-connect:
-    image: confluentinc/cp-kafka-connect:7.3.2
-    restart: always
-    hostname: kafka-connect
-    container_name: kafka-connect
-    ports:
-      - "8083:8083"
-    environment:
-      CONNECT_BOOTSTRAP_SERVERS: "kafka1:19091"
-      CONNECT_REST_PORT: 8083
-      CONNECT_GROUP_ID: compose-connect-group
-      CONNECT_CONFIG_STORAGE_TOPIC: docker-connect-configs
-      CONNECT_OFFSET_STORAGE_TOPIC: docker-connect-offsets
-      CONNECT_STATUS_STORAGE_TOPIC: docker-connect-status
-      CONNECT_KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
-      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
-      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
-      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
-      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
-      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
-      CONNECT_REST_ADVERTISED_HOST_NAME: "kafka-connect"
-      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
-      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR"
-      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
-      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
-      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
-      CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars,/usr/share/confluent-hub-components'
-    volumes:
-      - ./connectors:/etc/kafka-connect/jars/
-    depends_on:
-      - zookeeper
-      - kafka1
-      - kafka-schema-registry
-      - kafka-rest-proxy
-    command:
-      - bash
-      - -c
-      - |
-        confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest
-        confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
-        /etc/confluent/docker/run
+#  kafka-connect:
+#    image: confluentinc/cp-kafka-connect:7.3.2
+#    restart: always
+#    hostname: kafka-connect
+#    container_name: kafka-connect
+#    ports:
+#      - "8083:8083"
+#    environment:
+#      CONNECT_BOOTSTRAP_SERVERS: "kafka1:19091"
+#      CONNECT_REST_PORT: 8083
+#      CONNECT_GROUP_ID: compose-connect-group
+#      CONNECT_CONFIG_STORAGE_TOPIC: docker-connect-configs
+#      CONNECT_OFFSET_STORAGE_TOPIC: docker-connect-offsets
+#      CONNECT_STATUS_STORAGE_TOPIC: docker-connect-status
+#      CONNECT_KEY_CONVERTER: io.confluent.connect.avro.AvroConverter
+#      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
+#      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+#      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://kafka-schema-registry:8081'
+#      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+#      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+#      CONNECT_REST_ADVERTISED_HOST_NAME: "kafka-connect"
+#      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+#      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR"
+#      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+#      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+#      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+#      CONNECT_PLUGIN_PATH: '/usr/share/java,/etc/kafka-connect/jars,/usr/share/confluent-hub-components'
+#    volumes:
+#      - ./connectors:/etc/kafka-connect/jars/
+#    depends_on:
+#      - zookeeper
+#      - kafka1
+#      - kafka-schema-registry
+#      - kafka-rest-proxy
+#    command:
+#      - bash
+#      - -c
+#      - |
+#        confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest
+#        confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
+#        /etc/confluent/docker/run
 
-  ksqldb-server:
-    image: confluentinc/cp-ksqldb-server:7.3.2
-    restart: always
-    hostname: ksqldb-server
-    container_name: ksqldb-server
-    ports:
-      - "8088:8088"
-    environment:
-      KSQL_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
-      KSQL_LISTENERS: http://0.0.0.0:8088/
-      KSQL_KSQL_SERVICE_ID: ksqldb-server_
-      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://kafka-schema-registry:8081"
-    depends_on:
-      - zookeeper
-      - kafka1
-      - kafka-schema-registry
+#  ksqldb-server:
+#    image: confluentinc/cp-ksqldb-server:7.3.2
+#    restart: always
+#    hostname: ksqldb-server
+#    container_name: ksqldb-server
+#    ports:
+#      - "8088:8088"
+#    environment:
+#      KSQL_BOOTSTRAP_SERVERS: PLAINTEXT://kafka1:19091
+#      KSQL_LISTENERS: http://0.0.0.0:8088/
+#      KSQL_KSQL_SERVICE_ID: ksqldb-server_
+#      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://kafka-schema-registry:8081"
+#    depends_on:
+#      - zookeeper
+#      - kafka1
+#      - kafka-schema-registry
 
   kafka-ui:
     image: provectuslabs/kafka-ui
@@ -134,7 +134,7 @@ services:
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka1:19091
-      - KAFKA_CLUSTERS_0_SCHEMAREGISTRY=http://kafka-schema-registry:8081
-      - KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME=first
-      - KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS=http://kafka-connect:8083
-      - KAFKA_CLUSTERS_0_KSQLDBSERVER=http://ksqldb-server:8088
+#      - KAFKA_CLUSTERS_0_SCHEMAREGISTRY=http://kafka-schema-registry:8081
+#      - KAFKA_CLUSTERS_0_KAFKACONNECT_0_NAME=first
+#      - KAFKA_CLUSTERS_0_KAFKACONNECT_0_ADDRESS=http://kafka-connect:8083
+#      - KAFKA_CLUSTERS_0_KSQLDBSERVER=http://ksqldb-server:8088

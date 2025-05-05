@@ -6,19 +6,9 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
-    networks:
-      - redis-network
 
   redis-ui:
-    image: redislabs/redisinsight:latest
+    image: redislabs/redisinsight:1.14.0
     container_name: redis-ui
     ports:
       - "8001:8001"
-    networks:
-      - redis-network
-    volumes:
-      - ./redisinsight-config/connections.json:/db/redisinsight/connections.json
-
-networks:
-  redis-network:
-    driver: bridge
